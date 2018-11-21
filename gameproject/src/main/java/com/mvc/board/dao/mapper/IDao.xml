@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+
+<mapper namespace="com.mvc.board.dao.WebGameDao">
+	<select id="list" resultType="com.mvc.board.dto.WebGameDataListDto">
+		SELECT * FROM webgame_board LIMIT #{param1} ,#{param2}
+	</select>
+	
+	<select id="count" resultType="int">
+		SELECT COUNT(*) FROM webgame_board
+	</select>
+	
+	<insert id="sign_up">
+		INSERT INTO INFORMATION (ID, PASSWORD, NAME, GENDER, MONTH, EMAIL) VALUES (#{id}, #{password}, #{name}, #{gender}, #{month}, #{email})
+	</insert>
+	
+	<select id="info" resultType="com.mvc.board.dto.InformationDto">
+		SELECT * FROM INFORMATION WHERE ID = #{id} AND PASSWORD = #{password}
+	</select>
+</mapper>
+
